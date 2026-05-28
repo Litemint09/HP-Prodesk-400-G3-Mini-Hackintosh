@@ -79,32 +79,16 @@
 
 <h1 tabindex="-1" dir="auto"><a id="user-content-tips" class="anchor" aria-hidden="true" tabindex="-1" href="#tips"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>How to Use This EFI</h1>
 <p dir="auto">Before using it on your hackintosh, do these house keeping first</p>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>sudo pmset autopoweroff 0
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>
 1. Extract the zip file
-2. Download Bluetooth Firmware and itlwm.kexts (I removed them from the EFI.zip since the upload size here in GitHub is 25MB, and it was way over 30MB if I kept these 2 kexts)
+2. Download <a href="https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases/tag/v2.4.0">Bluetooth Firmware</a> and <a href="https://github.com/OpenIntelWireless/itlwm/releases/download/v2.3.0/itlwm_v2.3.0_stable.kext.zip">itlwm.kexts</a> (I removed them from the EFI.zip since the upload size here in GitHub is 25MB, and it was way over 30MB if I kept these 2 kexts)
 3. Copy those kext into the EFI/OC/Kexts
-4. Use GenSMBIOS to create your own Serials
-5. Use this Guide to install macOS Tahoe, skip the OpCore Simplify part since you are using the EFI.zip here
+4. Use <a href="https://youtu.be/qCZGjMFK7AI">GenSMBIOS </a> to create your own Serials
+5. Use this <a href="https://youtu.be/-JlOk5tGCkc">Guide to install macOS Tahoe</a>, skip the OpCore Simplify part since you are using the EFI.zip here
 6. Adjust your BIOS Settings 
 7. Boot into macOS
+</pre>pre>
  
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
-    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
-    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-</svg>
-    </clipboard-copy>
-  </div></div>
-<p dir="auto">This will do 5 things for us:</p>
-<ul dir="auto">
-<li><code>Disables</code> <strong>autopoweroff</strong>: This is a form of hibernation</li>
-<li><code>Disables</code> <strong>powernap</strong>: Used to periodically wake the machine for network, and updates(but not the display)</li>
-<li><code>Disables</code> <strong>standby</strong>: Used as a time period between sleep and going into hibernation</li>
-<li><code>Disables</code> wake from iPhone/Watch: Specifically when your iPhone or Apple Watch come near, the machine will wake</li>
-<li><code>Disables</code> <strong>TCP Keep Alive</strong> mechanism to prevent wake ups every 2 hours</li>
-</ul>
-    
 
 <h2 tabindex="-1" dir="auto"><a id="user-content-download" class="anchor" aria-hidden="true" tabindex="-1" href="#download"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>The easiest guide to install macOS on your computer</h2>
 <p dir="auto">I made a comprehensive guide (at least on my opinion), <a href="https://www.youtube.com/watch?v=weoohMlGyMo&t=934s" rel="nofollow"><code>Youtube: litemint09</code></a></p>
